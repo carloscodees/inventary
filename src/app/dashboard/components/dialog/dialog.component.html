@@ -1,0 +1,41 @@
+   <!-- <mat-spinner></mat-spinner> -->
+<mat-dialog-content class="mat-typography">
+    
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput [(ngModel)]="name">
+          </mat-form-field>
+    </p>
+  
+<p>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput  [(ngModel)]="description"></textarea>
+      </mat-form-field>
+</p>
+       
+    <p>
+      <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput [(ngModel)]="price">
+        </mat-form-field>
+  </p>
+          <h2>Select Category</h2>
+      
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="category"
+   >
+
+        <mat-radio-button class="example-radio-button" *ngFor="let season of seasons; let i = index" [value]="season.id">
+        {{season.name}}
+        </mat-radio-button>
+        </mat-radio-group>
+      
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="closeDialog()" cdkFocusInitial color="primary">Add</button>
+  </mat-dialog-actions>
